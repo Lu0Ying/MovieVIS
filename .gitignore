@@ -1,0 +1,29 @@
+# 原始数据、中间产物与日志（体积大且可重新生成）
+work/data/
+work/processed/
+work/logs/
+work/preview/
+**/work/data/
+**/work/processed/
+**/work/logs/
+**/work/preview/
+.screenshots/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# 压缩包与二进制中间件（原始数据集）
+*.gz
+*.npz
+*.zip
+*.7z
+*.rar
+*.tar
+*.pkl
+*.pickle
+
+# 说明：Git 无法按体积忽略，超过 50 MB 的文件请在提交前用
+#   git ls-files -z | xargs -0 ls -lh | sort -k5 -h
+# 或脚本检查，确认后再决定是否纳入；本仓库不提交任何原始数据压缩包。
