@@ -1,20 +1,12 @@
-# 原始数据、中间产物与日志（体积大且可重新生成）
-work/data/
-work/processed/
-work/logs/
-work/preview/
-**/work/data/
-**/work/processed/
-**/work/logs/
-**/work/preview/
-.screenshots/
+# 数据目录：原始数据、中间产物、日志、预览产物均不入库
+data/
 
 # Python 缓存
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 
-# 压缩包与二进制中间件（原始数据集）
+# 压缩包与二进制中间件
 *.gz
 *.npz
 *.zip
@@ -24,6 +16,10 @@ __pycache__/
 *.pkl
 *.pickle
 
-# 说明：Git 无法按体积忽略，超过 50 MB 的文件请在提交前用
-#   git ls-files -z | xargs -0 ls -lh | sort -k5 -h
-# 或脚本检查，确认后再决定是否纳入；本仓库不提交任何原始数据压缩包。
+# 系统与编辑器
+Thumbs.db
+.DS_Store
+.vscode/
+
+# 说明：Git 不能按体积忽略，提交前请确认没有超过 50 MB 的文件：
+#   python -c "import pathlib;print(max((p.stat().st_size,p) for p in pathlib.Path('.').rglob('*') if p.is_file()))"
